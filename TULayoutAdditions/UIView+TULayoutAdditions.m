@@ -16,8 +16,13 @@ BOOL TUAutoAddConstraint(NSLayoutConstraint *constraint)
     UIView *parentView = [constraint.firstItem ancestorSharedWithView:constraint.secondItem];
     
     if (parentView != nil) {
-        [constraint.firstItem setTranslatesAutoresizingMaskIntoConstraints:NO];
-        [constraint.secondItem setTranslatesAutoresizingMaskIntoConstraints:NO];
+        if (![constraint.secondItem isSubviewOfView:constraint.firstItem]) {
+            [constraint.firstItem setTranslatesAutoresizingMaskIntoConstraints:NO];
+        }
+        
+        if (![constraint.firstItem isSubviewOfView:constraint.secondItem]) {
+            [constraint.secondItem setTranslatesAutoresizingMaskIntoConstraints:NO];
+        }
         
         [parentView addConstraint:constraint];
         
