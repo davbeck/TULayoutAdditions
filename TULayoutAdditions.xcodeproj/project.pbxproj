@@ -18,6 +18,9 @@
 		11BBACB9173D578B003AD347 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 11BBACB8173D578B003AD347 /* Default-568h@2x.png */; };
 		11BBACBC173D578B003AD347 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11BBACBA173D578B003AD347 /* MainStoryboard.storyboard */; };
 		11BBACBF173D578B003AD347 /* TUViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11BBACBE173D578B003AD347 /* TUViewController.m */; };
+		11BBACC8173D57E9003AD347 /* UIView+TULayoutAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 11BBACC7173D57E9003AD347 /* UIView+TULayoutAdditions.m */; };
+		11BBACCC173D5D16003AD347 /* TUConstraintInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 11BBACCB173D5D16003AD347 /* TUConstraintInfo.m */; };
+		11BBACCF173D5DEF003AD347 /* NSNumber+TULayoutAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 11BBACCE173D5DEF003AD347 /* NSNumber+TULayoutAdditions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +40,13 @@
 		11BBACBB173D578B003AD347 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		11BBACBD173D578B003AD347 /* TUViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TUViewController.h; sourceTree = "<group>"; };
 		11BBACBE173D578B003AD347 /* TUViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TUViewController.m; sourceTree = "<group>"; };
+		11BBACC6173D57E9003AD347 /* UIView+TULayoutAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+TULayoutAdditions.h"; sourceTree = "<group>"; };
+		11BBACC7173D57E9003AD347 /* UIView+TULayoutAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+TULayoutAdditions.m"; sourceTree = "<group>"; };
+		11BBACC9173D5C8F003AD347 /* TULayoutAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TULayoutAdditions.h; sourceTree = "<group>"; };
+		11BBACCA173D5D16003AD347 /* TUConstraintInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TUConstraintInfo.h; sourceTree = "<group>"; };
+		11BBACCB173D5D16003AD347 /* TUConstraintInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TUConstraintInfo.m; sourceTree = "<group>"; };
+		11BBACCD173D5DEF003AD347 /* NSNumber+TULayoutAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+TULayoutAdditions.h"; sourceTree = "<group>"; };
+		11BBACCE173D5DEF003AD347 /* NSNumber+TULayoutAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+TULayoutAdditions.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +66,8 @@
 		11BBAC96173D578B003AD347 = {
 			isa = PBXGroup;
 			children = (
-				11BBACA8173D578B003AD347 /* TULayoutAdditions */,
+				11BBACC5173D5797003AD347 /* TULayoutAdditions */,
+				11BBACA8173D578B003AD347 /* TULayoutAdditionsExample */,
 				11BBACA1173D578B003AD347 /* Frameworks */,
 				11BBACA0173D578B003AD347 /* Products */,
 			);
@@ -80,7 +91,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		11BBACA8173D578B003AD347 /* TULayoutAdditions */ = {
+		11BBACA8173D578B003AD347 /* TULayoutAdditionsExample */ = {
 			isa = PBXGroup;
 			children = (
 				11BBACB1173D578B003AD347 /* TUAppDelegate.h */,
@@ -90,7 +101,7 @@
 				11BBACBE173D578B003AD347 /* TUViewController.m */,
 				11BBACA9173D578B003AD347 /* Supporting Files */,
 			);
-			path = TULayoutAdditions;
+			path = TULayoutAdditionsExample;
 			sourceTree = "<group>";
 		};
 		11BBACA9173D578B003AD347 /* Supporting Files */ = {
@@ -105,6 +116,20 @@
 				11BBACB8173D578B003AD347 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		11BBACC5173D5797003AD347 /* TULayoutAdditions */ = {
+			isa = PBXGroup;
+			children = (
+				11BBACC9173D5C8F003AD347 /* TULayoutAdditions.h */,
+				11BBACC6173D57E9003AD347 /* UIView+TULayoutAdditions.h */,
+				11BBACC7173D57E9003AD347 /* UIView+TULayoutAdditions.m */,
+				11BBACCD173D5DEF003AD347 /* NSNumber+TULayoutAdditions.h */,
+				11BBACCE173D5DEF003AD347 /* NSNumber+TULayoutAdditions.m */,
+				11BBACCA173D5D16003AD347 /* TUConstraintInfo.h */,
+				11BBACCB173D5D16003AD347 /* TUConstraintInfo.m */,
+			);
+			path = TULayoutAdditions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,6 +202,9 @@
 				11BBACAF173D578B003AD347 /* main.m in Sources */,
 				11BBACB3173D578B003AD347 /* TUAppDelegate.m in Sources */,
 				11BBACBF173D578B003AD347 /* TUViewController.m in Sources */,
+				11BBACC8173D57E9003AD347 /* UIView+TULayoutAdditions.m in Sources */,
+				11BBACCC173D5D16003AD347 /* TUConstraintInfo.m in Sources */,
+				11BBACCF173D5DEF003AD347 /* NSNumber+TULayoutAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,8 +290,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "TULayoutAdditions/TULayoutAdditions-Prefix.pch";
-				INFOPLIST_FILE = "TULayoutAdditions/TULayoutAdditions-Info.plist";
+				GCC_PREFIX_HEADER = "TULayoutAdditionsExample/TULayoutAdditions-Prefix.pch";
+				INFOPLIST_FILE = "TULayoutAdditionsExample/TULayoutAdditions-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -273,8 +301,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "TULayoutAdditions/TULayoutAdditions-Prefix.pch";
-				INFOPLIST_FILE = "TULayoutAdditions/TULayoutAdditions-Info.plist";
+				GCC_PREFIX_HEADER = "TULayoutAdditionsExample/TULayoutAdditions-Prefix.pch";
+				INFOPLIST_FILE = "TULayoutAdditionsExample/TULayoutAdditions-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
