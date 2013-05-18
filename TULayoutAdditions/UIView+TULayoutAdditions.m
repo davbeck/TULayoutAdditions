@@ -9,27 +9,12 @@
 #import "UIView+TULayoutAdditions.h"
 
 #import "NSNumber+TULayoutAdditions.h"
+#import "NSLayoutConstraint+TULayoutAdditions.h"
 
 
 BOOL TUAutoAddConstraint(NSLayoutConstraint *constraint)
 {
-    UIView *parentView = [constraint.firstItem ancestorSharedWithView:constraint.secondItem];
-    
-    if (parentView != nil) {
-        if (![constraint.secondItem isSubviewOfView:constraint.firstItem]) {
-            [constraint.firstItem setTranslatesAutoresizingMaskIntoConstraints:NO];
-        }
-        
-        if (![constraint.firstItem isSubviewOfView:constraint.secondItem]) {
-            [constraint.secondItem setTranslatesAutoresizingMaskIntoConstraints:NO];
-        }
-        
-        [parentView addConstraint:constraint];
-        
-        return YES;
-    }
-    
-    return NO;
+    return [constraint add];
 }
 
 
@@ -119,7 +104,7 @@ BOOL TUAutoAddConstraint(NSLayoutConstraint *constraint)
                                                                           constant:constraint.constant];
     layoutConstraint.priority = constraint.priority;
     
-    TUAutoAddConstraint(layoutConstraint);
+    [layoutConstraint add];
 }
 
 - (TUConstraintInfo *)constraintWithAttribute:(NSLayoutAttribute)attribute

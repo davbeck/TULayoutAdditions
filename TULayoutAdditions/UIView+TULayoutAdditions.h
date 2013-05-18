@@ -11,7 +11,7 @@
 #import "TUConstraintInfo.h"
 
 
-extern BOOL TUAutoAddConstraint(NSLayoutConstraint *constraint);
+extern BOOL TUAutoAddConstraint(NSLayoutConstraint *constraint) __attribute__((deprecated));
 
 
 @interface UIView (TULayoutAdditions)
