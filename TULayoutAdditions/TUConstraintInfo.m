@@ -77,4 +77,24 @@
     return self;
 }
 
+- (instancetype)plus:(CGFloat)value
+{
+    return [self withConstant:self.constant + value];
+}
+
+- (instancetype)minus:(CGFloat)value
+{
+    return [self withConstant:self.constant - value];
+}
+
+- (instancetype)times:(CGFloat)value
+{
+    return [self withMultiplier:self.multiplier * value];
+}
+
+- (instancetype)dividedBy:(CGFloat)value
+{
+    return [self withMultiplier:self.multiplier * (1.0 / value)];
+}
+
 @end

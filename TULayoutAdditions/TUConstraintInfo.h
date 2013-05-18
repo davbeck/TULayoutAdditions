@@ -30,4 +30,10 @@
 @property (nonatomic, readonly) UILayoutPriority priority;
 - (instancetype)withPriority:(UILayoutPriority)priority;
 
+// Order of operations doesn't apply. The equation will always be mX + b.
+- (instancetype)plus:(CGFloat)value;
+- (instancetype)minus:(CGFloat)value;
+- (instancetype)times:(CGFloat)value;
+- (instancetype)dividedBy:(CGFloat)value;
+
 @end

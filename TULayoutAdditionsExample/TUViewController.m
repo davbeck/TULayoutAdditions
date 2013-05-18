@@ -39,15 +39,15 @@
     blueView.constrainedTop = @80;
     blueView.constrainedLeft = @20;
     
-    redView.constrainedLeft = [blueView.constrainedRight withConstant:20.0];
+    redView.constrainedLeft = [blueView.constrainedRight plus:20.0];
     redView.constrainedTop = @50;
     redView.constrainedBottom = @-150;
     redView.constrainedRight = @-100;
     
-    greenView.constrainedTop = [[blueView.constrainedBottom greaterThanOrEqual] withConstant:10.0];
+    greenView.constrainedTop = [[blueView.constrainedBottom greaterThanOrEqual] plus:10.0];
     greenView.constrainedBottom = redView.constrainedBottom;
     greenView.constrainedHeight = [[@100 constraint] withPriority:UILayoutPriorityDefaultLow];
-    greenView.constrainedRight = [redView.constrainedLeft withConstant:-10];
+    greenView.constrainedRight = [redView.constrainedLeft minus:10.0];
     greenView.constrainedLeft = @10;
 }
 
