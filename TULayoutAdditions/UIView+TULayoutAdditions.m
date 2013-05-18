@@ -84,14 +84,14 @@ BOOL TUAutoAddConstraint(NSLayoutConstraint *constraint)
     return [[self locationAttributes] containsObject:@(attribute)];
 }
 
-- (void)setConstrainedAttribute:(NSLayoutAttribute)attribute constraint:(TUConstraintInfo *)constraint
+- (NSLayoutConstraint *)constraintWithAttribute:(NSLayoutAttribute)attribute info:(TUConstraintInfo *)info
 {
-    if ([constraint isKindOfClass:[NSNumber class]]) {
-        constraint = [(NSNumber *)constraint constraint];
+    if ([info isKindOfClass:[NSNumber class]]) {
+        info = [(NSNumber *)info constraint];
     }
     
-    UIView *toItem = constraint.toItem;
-    NSLayoutAttribute toAttribute = constraint.toAttribute;
+    UIView *toItem = info.toItem;
+    NSLayoutAttribute toAttribute = info.toAttribute;
     if (toItem == nil && [[self class] attributeIsLocation:attribute]) {
         toItem = self.superview;
         toAttribute = attribute;
@@ -100,19 +100,26 @@ BOOL TUAutoAddConstraint(NSLayoutConstraint *constraint)
     
     NSLayoutConstraint * layoutConstraint = [NSLayoutConstraint constraintWithItem:self
                                                                          attribute:attribute
-                                                                         relatedBy:constraint.relation
+                                                                         relatedBy:info.relation
                                                                             toItem:toItem
                                                                          attribute:toAttribute
-                                                                        multiplier:constraint.multiplier
-                                                                          constant:constraint.constant];
-    layoutConstraint.priority = constraint.priority;
+                                                                        multiplier:info.multiplier
+                                                                          constant:info.constant];
+    layoutConstraint.priority = info.priority;
+    
+    return layoutConstraint;
+}
+
+- (void)setConstraintWithAttribute:(NSLayoutAttribute)attribute info:(TUConstraintInfo *)info
+{
+    NSLayoutConstraint *layoutConstraint = [self constraintWithAttribute:attribute info:info];
     
     [layoutConstraint add];
     
     [[NSThread currentThread].threadDictionary[TUAddedConstraintsKey] addObject:layoutConstraint];
 }
 
-- (TUConstraintInfo *)constraintWithAttribute:(NSLayoutAttribute)attribute
+- (TUConstraintInfo *)constraintInfoWithAttribute:(NSLayoutAttribute)attribute
 {
     return [[TUConstraintInfo alloc] initWithItem:self attribute:attribute];
 }
@@ -122,112 +129,112 @@ BOOL TUAutoAddConstraint(NSLayoutConstraint *constraint)
 
 - (void)setConstrainedLeft:(TUConstraintInfo *)constraint
 {
-    [self setConstrainedAttribute:NSLayoutAttributeLeft constraint:constraint];
+    [self setConstraintWithAttribute:NSLayoutAttributeLeft info:constraint];
 }
 
 - (TUConstraintInfo *)constrainedLeft
 {
-    return [self constraintWithAttribute:NSLayoutAttributeLeft];
+    return [self constraintInfoWithAttribute:NSLayoutAttributeLeft];
 }
 
 - (void)setConstrainedRight:(TUConstraintInfo *)constraint
 {
-    [self setConstrainedAttribute:NSLayoutAttributeRight constraint:constraint];
+    [self setConstraintWithAttribute:NSLayoutAttributeRight info:constraint];
 }
 
 - (TUConstraintInfo *)constrainedRight
 {
-    return [self constraintWithAttribute:NSLayoutAttributeRight];
+    return [self constraintInfoWithAttribute:NSLayoutAttributeRight];
 }
 
 - (void)setConstrainedTop:(TUConstraintInfo *)constraint
 {
-    [self setConstrainedAttribute:NSLayoutAttributeTop constraint:constraint];
+    [self setConstraintWithAttribute:NSLayoutAttributeTop info:constraint];
 }
 
 - (TUConstraintInfo *)constrainedTop
 {
-    return [self constraintWithAttribute:NSLayoutAttributeTop];
+    return [self constraintInfoWithAttribute:NSLayoutAttributeTop];
 }
 
 - (void)setConstrainedBottom:(TUConstraintInfo *)constraint
 {
-    [self setConstrainedAttribute:NSLayoutAttributeBottom constraint:constraint];
+    [self setConstraintWithAttribute:NSLayoutAttributeBottom info:constraint];
 }
 
 - (TUConstraintInfo *)constrainedBottom
 {
-    return [self constraintWithAttribute:NSLayoutAttributeBottom];
+    return [self constraintInfoWithAttribute:NSLayoutAttributeBottom];
 }
 
 - (void)setConstrainedLeading:(TUConstraintInfo *)constraint
 {
-    [self setConstrainedAttribute:NSLayoutAttributeLeading constraint:constraint];
+    [self setConstraintWithAttribute:NSLayoutAttributeLeading info:constraint];
 }
 
 - (TUConstraintInfo *)constrainedLeading
 {
-    return [self constraintWithAttribute:NSLayoutAttributeLeading];
+    return [self constraintInfoWithAttribute:NSLayoutAttributeLeading];
 }
 
 - (void)setConstrainedTrailing:(TUConstraintInfo *)constraint
 {
-    [self setConstrainedAttribute:NSLayoutAttributeTrailing constraint:constraint];
+    [self setConstraintWithAttribute:NSLayoutAttributeTrailing info:constraint];
 }
 
 - (TUConstraintInfo *)constrainedTrailing
 {
-    return [self constraintWithAttribute:NSLayoutAttributeTrailing];
+    return [self constraintInfoWithAttribute:NSLayoutAttributeTrailing];
 }
 
 - (void)setConstrainedWidth:(TUConstraintInfo *)constraint
 {
-    [self setConstrainedAttribute:NSLayoutAttributeWidth constraint:constraint];
+    [self setConstraintWithAttribute:NSLayoutAttributeWidth info:constraint];
 }
 
 - (TUConstraintInfo *)constrainedWidth
 {
-    return [self constraintWithAttribute:NSLayoutAttributeWidth];
+    return [self constraintInfoWithAttribute:NSLayoutAttributeWidth];
 }
 
 - (void)setConstrainedHeight:(TUConstraintInfo *)constraint
 {
-    [self setConstrainedAttribute:NSLayoutAttributeHeight constraint:constraint];
+    [self setConstraintWithAttribute:NSLayoutAttributeHeight info:constraint];
 }
 
 - (TUConstraintInfo *)constrainedHeight
 {
-    return [self constraintWithAttribute:NSLayoutAttributeHeight];
+    return [self constraintInfoWithAttribute:NSLayoutAttributeHeight];
 }
 
 - (void)setConstrainedCenterX:(TUConstraintInfo *)constraint
 {
-    [self setConstrainedAttribute:NSLayoutAttributeCenterX constraint:constraint];
+    [self setConstraintWithAttribute:NSLayoutAttributeCenterX info:constraint];
 }
 
 - (TUConstraintInfo *)constrainedCenterX
 {
-    return [self constraintWithAttribute:NSLayoutAttributeCenterX];
+    return [self constraintInfoWithAttribute:NSLayoutAttributeCenterX];
 }
 
 - (void)setConstrainedCenterY:(TUConstraintInfo *)constraint
 {
-    [self setConstrainedAttribute:NSLayoutAttributeCenterY constraint:constraint];
+    [self setConstraintWithAttribute:NSLayoutAttributeCenterY info:constraint];
 }
 
 - (TUConstraintInfo *)constrainedCenterY
 {
-    return [self constraintWithAttribute:NSLayoutAttributeCenterY];
+    return [self constraintInfoWithAttribute:NSLayoutAttributeCenterY];
 }
 
 - (void)setConstrainedBaseline:(TUConstraintInfo *)constraint
 {
-    [self setConstrainedAttribute:NSLayoutAttributeBaseline constraint:constraint];
+    [self setConstraintWithAttribute:NSLayoutAttributeBaseline info:constraint];
 }
 
 - (TUConstraintInfo *)constrainedBaseline
 {
-    return [self constraintWithAttribute:NSLayoutAttributeBaseline];
+    return [self constraintInfoWithAttribute:NSLayoutAttributeBaseline];
 }
 
 + (NSArray *)constraintsWithBlock:(TUConstraintsBlock)block

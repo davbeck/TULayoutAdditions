@@ -21,6 +21,10 @@ extern BOOL TUAutoAddConstraint(NSLayoutConstraint *constraint) __attribute__((d
 - (UIView *)ancestorSharedWithView:(UIView *)aView;
 - (BOOL)isSubviewOfView:(UIView *)view;
 
+- (NSLayoutConstraint *)constraintWithAttribute:(NSLayoutAttribute)attribute info:(TUConstraintInfo *)info;
+- (void)setConstraintWithAttribute:(NSLayoutAttribute)attribute info:(TUConstraintInfo *)constraint;
+- (TUConstraintInfo *)constraintInfoWithAttribute:(NSLayoutAttribute)attribute;
+
 @property (nonatomic, copy) id constrainedLeft;
 @property (nonatomic, copy) id constrainedRight;
 @property (nonatomic, copy) id constrainedTop;
