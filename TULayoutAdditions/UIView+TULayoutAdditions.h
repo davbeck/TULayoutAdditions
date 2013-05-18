@@ -11,6 +11,8 @@
 #import "TUConstraintInfo.h"
 
 
+typedef void(^TUConstraintsBlock)();
+
 extern BOOL TUAutoAddConstraint(NSLayoutConstraint *constraint) __attribute__((deprecated));
 
 
@@ -30,5 +32,7 @@ extern BOOL TUAutoAddConstraint(NSLayoutConstraint *constraint) __attribute__((d
 @property (nonatomic, copy) id constrainedCenterX;
 @property (nonatomic, copy) id constrainedCenterY;
 @property (nonatomic, copy) id constrainedBaseline;
+
++ (NSArray *)constraintsWithBlock:(TUConstraintsBlock)block;
 
 @end

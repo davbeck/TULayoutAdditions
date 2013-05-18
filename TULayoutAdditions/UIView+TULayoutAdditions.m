@@ -12,6 +12,9 @@
 #import "NSLayoutConstraint+TULayoutAdditions.h"
 
 
+#define TUAddedConstraintsKey @"TUAddedConstraints"
+
+
 BOOL TUAutoAddConstraint(NSLayoutConstraint *constraint)
 {
     return [constraint add];
@@ -105,6 +108,8 @@ BOOL TUAutoAddConstraint(NSLayoutConstraint *constraint)
     layoutConstraint.priority = constraint.priority;
     
     [layoutConstraint add];
+    
+    [[NSThread currentThread].threadDictionary[TUAddedConstraintsKey] addObject:layoutConstraint];
 }
 
 - (TUConstraintInfo *)constraintWithAttribute:(NSLayoutAttribute)attribute
@@ -223,6 +228,28 @@ BOOL TUAutoAddConstraint(NSLayoutConstraint *constraint)
 - (TUConstraintInfo *)constrainedBaseline
 {
     return [self constraintWithAttribute:NSLayoutAttributeBaseline];
+}
+
++ (NSArray *)constraintsWithBlock:(TUConstraintsBlock)block
+{
+    NSMutableArray *originalConstraints = [NSThread currentThread].threadDictionary[TUAddedConstraintsKey];
+    
+    
+    [NSThread currentThread].threadDictionary[TUAddedConstraintsKey] = [NSMutableArray new];
+    
+    block();
+    
+    NSArray *newConstraints = [NSThread currentThread].threadDictionary[TUAddedConstraintsKey];
+    
+    
+    if (originalConstraints != nil) {
+        [originalConstraints addObjectsFromArray:newConstraints];
+        [NSThread currentThread].threadDictionary[TUAddedConstraintsKey] = originalConstraints;
+    } else {
+        [[NSThread currentThread].threadDictionary removeObjectForKey:TUAddedConstraintsKey];
+    }
+    
+    return newConstraints;
 }
 
 @end

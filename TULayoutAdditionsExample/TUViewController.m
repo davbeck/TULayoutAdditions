@@ -44,11 +44,15 @@
     redView.constrainedBottom = @-150;
     redView.constrainedRight = @-100;
     
-    greenView.constrainedTop = [[blueView.constrainedBottom greaterThanOrEqual] plus:10.0];
-    greenView.constrainedBottom = redView.constrainedBottom;
-    greenView.constrainedHeight = [[@100 constraint] withPriority:UILayoutPriorityDefaultLow];
-    greenView.constrainedRight = [redView.constrainedLeft minus:10.0];
-    greenView.constrainedLeft = @10;
+    NSArray *greenConstraints = [UIView constraintsWithBlock:^{
+        greenView.constrainedTop = [[blueView.constrainedBottom greaterThanOrEqual] plus:10.0];
+        greenView.constrainedBottom = redView.constrainedBottom;
+        greenView.constrainedHeight = [[@100 constraint] withPriority:UILayoutPriorityDefaultLow];
+        greenView.constrainedRight = [redView.constrainedLeft minus:10.0];
+        greenView.constrainedLeft = @10;
+    }];
+    
+    NSLog(@"greenConstraints: %@", greenConstraints);
 }
 
 @end
