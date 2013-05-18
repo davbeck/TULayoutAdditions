@@ -53,3 +53,32 @@ While the visual formatting language is useful, the large amount of options, nee
 Note that the order of operations for `plus`/`minus`/`times`/`dividedBy` do not apply. If you add first, and then multiply, the constant will not be multiplied. The function will always be `mX + b`.
 
 Once you have a `TUConstraintInfo` object, you can then set it on another view's `constrained` attribute. When you set constraint info on a view, it automatically creates a constraint and adds it to the correct view. It also sets `translatesAutoresizingMaskIntoConstraints` on both views, unless one is a superview of the other (that is done so that setting a constraint automatically does not invalidate superview constraints).
+
+You can get a reference to the created `NSLayoutConstraint` in one of two ways.
+
+### Blocks
+
+You can create all the constraints inside of a block using `+[UIView constraintsWithBlock:]` and then get an array of all the constraints created.
+
+    NSArray *greenConstraints = [UIView constraintsWithBlock:^{
+        greenView.constrainedTop = [[blueView.constrainedBottom greaterThanOrEqual] plus:10.0];
+        greenView.constrainedBottom = redView.constrainedBottom;
+        greenView.constrainedHeight = [[@100 constraint] withPriority:UILayoutPriorityDefaultLow];
+        greenView.constrainedRight = [redView.constrainedLeft minus:10.0];
+        greenView.constrainedLeft = @10;
+    }];
+
+The returned constraints will only include those created with the `setConstrainedX:` methods, or the `-[UIView setConstraintWithAttribute:info:` method.
+
+Each `setConstrainedX:` method is guaranteed to create one and only one constraint each time it is called. That means you can reliably do the following:
+
+    NSLayoutConstraint *greenConstraint = [UIView constraintsWithBlock:^{
+        greenView.constrainedLeft = @10;
+    }].lastObject;
+
+### Manually create and add constraints
+
+The `setConstrainedX:` methods just call `-[UIView setConstraintWithAttribute:info:]` with the corresponding `NSLayoutAttribute`, which in turn calls `-[UIView constraintWithAttribute:info:]` and adds it. You can use these methods yourself:
+
+    NSLayoutConstraint *constraint = [greenView constraintWithAttribute:NSLayoutAttributeLeft info:@10];
+    [constraint add];
