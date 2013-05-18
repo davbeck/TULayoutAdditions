@@ -107,6 +107,8 @@ BOOL TUAutoAddConstraint(NSLayoutConstraint *constraint)
                                                                           constant:info.constant];
     layoutConstraint.priority = info.priority;
     
+    [[NSThread currentThread].threadDictionary[TUAddedConstraintsKey] addObject:layoutConstraint];
+    
     return layoutConstraint;
 }
 
@@ -115,8 +117,6 @@ BOOL TUAutoAddConstraint(NSLayoutConstraint *constraint)
     NSLayoutConstraint *layoutConstraint = [self constraintWithAttribute:attribute info:info];
     
     [layoutConstraint add];
-    
-    [[NSThread currentThread].threadDictionary[TUAddedConstraintsKey] addObject:layoutConstraint];
 }
 
 - (TUConstraintInfo *)constraintInfoWithAttribute:(NSLayoutAttribute)attribute
