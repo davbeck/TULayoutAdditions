@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "TULayoutAdditions"
-  s.version      = "0.1.0"
+  s.version      = "0.2.0"
   s.summary      = "Shortcuts and helper methods to make iOS Auto Layout dead simple."
   s.homepage     = "http://github.com/davbeck/TULayoutAdditions"
   s.license      = 'BSD'
