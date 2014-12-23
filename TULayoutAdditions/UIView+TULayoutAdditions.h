@@ -25,17 +25,17 @@ extern BOOL TUAutoAddConstraint(NSLayoutConstraint *constraint) __attribute__((d
 - (void)setConstraintWithAttribute:(NSLayoutAttribute)attribute info:(TUConstraintInfo *)constraint;
 - (TUConstraintInfo *)constraintInfoWithAttribute:(NSLayoutAttribute)attribute;
 
-@property (nonatomic, copy) id constrainedLeft;
-@property (nonatomic, copy) id constrainedRight;
-@property (nonatomic, copy) id constrainedTop;
-@property (nonatomic, copy) id constrainedBottom;
-@property (nonatomic, copy) id constrainedLeading;
-@property (nonatomic, copy) id constrainedTrailing;
-@property (nonatomic, copy) id constrainedWidth;
-@property (nonatomic, copy) id constrainedHeight;
-@property (nonatomic, copy) id constrainedCenterX;
-@property (nonatomic, copy) id constrainedCenterY;
-@property (nonatomic, copy) id constrainedBaseline;
+@property (nonatomic, copy) id<TUConstraintInfo> constrainedLeft;
+@property (nonatomic, copy) id<TUConstraintInfo> constrainedRight;
+@property (nonatomic, copy) id<TUConstraintInfo> constrainedTop;
+@property (nonatomic, copy) id<TUConstraintInfo> constrainedBottom;
+@property (nonatomic, copy) id<TUConstraintInfo> constrainedLeading;
+@property (nonatomic, copy) id<TUConstraintInfo> constrainedTrailing;
+@property (nonatomic, copy) id<TUConstraintInfo> constrainedWidth;
+@property (nonatomic, copy) id<TUConstraintInfo> constrainedHeight;
+@property (nonatomic, copy) id<TUConstraintInfo> constrainedCenterX;
+@property (nonatomic, copy) id<TUConstraintInfo> constrainedCenterY;
+@property (nonatomic, copy) id<TUConstraintInfo> constrainedBaseline;
 
 + (NSArray *)constraintsWithBlock:(TUConstraintsBlock)block;
 

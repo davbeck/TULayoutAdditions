@@ -7,6 +7,7 @@
 //
 
 #import "UIView+TULayoutAdditions.h"
+#import "UIViewController+TULayoutAdditions.h"
 #import "NSNumber+TULayoutAdditions.h"
 #import "TUConstraintInfo.h"
 #import "NSLayoutConstraint+TULayoutAdditions.h"

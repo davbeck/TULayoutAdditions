@@ -8,32 +8,42 @@
 
 #import <Foundation/Foundation.h>
 
-@interface TUConstraintInfo : NSObject
 
-- (id)initWithItem:(UIView *)item attribute:(NSLayoutAttribute)attribute;
+@protocol TUConstraintInfo <NSObject>
 
-@property (nonatomic, readonly) NSLayoutRelation relation;
-- (instancetype)withRelation:(NSLayoutRelation)relation;
-- (instancetype)greaterThanOrEqual;
-- (instancetype)lessThanOrEqual;
-- (instancetype)equal;
+- (id<TUConstraintInfo>)withRelation:(NSLayoutRelation)relation;
+- (id<TUConstraintInfo>)greaterThanOrEqual;
+- (id<TUConstraintInfo>)lessThanOrEqual;
+- (id<TUConstraintInfo>)equal;
 
-@property (nonatomic, readonly, strong) UIView *toItem;
-@property (nonatomic, readonly) NSLayoutAttribute toAttribute;
-
-@property (nonatomic, readonly) CGFloat constant;
-- (instancetype)withConstant:(CGFloat)constant;
-
-@property (nonatomic, readonly) CGFloat multiplier;
-- (instancetype)withMultiplier:(CGFloat)multiplier;
-
-@property (nonatomic, readonly) UILayoutPriority priority;
-- (instancetype)withPriority:(UILayoutPriority)priority;
+- (id<TUConstraintInfo>)withConstant:(CGFloat)constant;
+- (id<TUConstraintInfo>)withMultiplier:(CGFloat)multiplier;
+- (id<TUConstraintInfo>)withPriority:(UILayoutPriority)priority;
 
 // Order of operations doesn't apply. The equation will always be mX + b.
-- (instancetype)plus:(CGFloat)value;
-- (instancetype)minus:(CGFloat)value;
-- (instancetype)times:(CGFloat)value;
-- (instancetype)dividedBy:(CGFloat)value;
+- (id<TUConstraintInfo>)plus:(CGFloat)value;
+- (id<TUConstraintInfo>)minus:(CGFloat)value;
+- (id<TUConstraintInfo>)times:(CGFloat)value;
+- (id<TUConstraintInfo>)dividedBy:(CGFloat)value;
+
+@end
+
+
+@interface TUConstraintInfo : NSObject <TUConstraintInfo>
+
+- (id)initWithItem:(UIView *)item attribute:(NSLayoutAttribute)attribute;
+- (id)initWithView:(UIView *)view guide:(id<UILayoutSupport>)guide attribute:(NSLayoutAttribute)attribute;
+
+@property (nonatomic, readonly) NSLayoutRelation relation;
+
+@property (nonatomic, readonly, strong) id toItem;
+@property (nonatomic, readonly) NSLayoutAttribute toAttribute;
+@property (nonatomic, readonly, strong) id<UILayoutSupport> guide;
+
+@property (nonatomic, readonly) CGFloat constant;
+
+@property (nonatomic, readonly) CGFloat multiplier;
+
+@property (nonatomic, readonly) UILayoutPriority priority;
 
 @end

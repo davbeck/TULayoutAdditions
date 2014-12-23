@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		118F4E251A48DD5F004CA1E5 /* UIViewController+TULayoutAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 118F4E241A48DD5F004CA1E5 /* UIViewController+TULayoutAdditions.m */; };
 		11A132461747DE0000F823EC /* NSLayoutConstraint+TULayoutAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A132451747DE0000F823EC /* NSLayoutConstraint+TULayoutAdditions.m */; };
 		11BBACA3173D578B003AD347 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11BBACA2173D578B003AD347 /* UIKit.framework */; };
 		11BBACA5173D578B003AD347 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11BBACA4173D578B003AD347 /* Foundation.framework */; };
@@ -25,6 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		118F4E231A48DD5F004CA1E5 /* UIViewController+TULayoutAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+TULayoutAdditions.h"; sourceTree = "<group>"; };
+		118F4E241A48DD5F004CA1E5 /* UIViewController+TULayoutAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+TULayoutAdditions.m"; sourceTree = "<group>"; };
 		11A132441747DE0000F823EC /* NSLayoutConstraint+TULayoutAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+TULayoutAdditions.h"; sourceTree = "<group>"; };
 		11A132451747DE0000F823EC /* NSLayoutConstraint+TULayoutAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+TULayoutAdditions.m"; sourceTree = "<group>"; };
 		11BBAC9F173D578B003AD347 /* TULayoutAdditions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TULayoutAdditions.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -127,6 +130,8 @@
 				11BBACC9173D5C8F003AD347 /* TULayoutAdditions.h */,
 				11BBACC6173D57E9003AD347 /* UIView+TULayoutAdditions.h */,
 				11BBACC7173D57E9003AD347 /* UIView+TULayoutAdditions.m */,
+				118F4E231A48DD5F004CA1E5 /* UIViewController+TULayoutAdditions.h */,
+				118F4E241A48DD5F004CA1E5 /* UIViewController+TULayoutAdditions.m */,
 				11BBACCD173D5DEF003AD347 /* NSNumber+TULayoutAdditions.h */,
 				11BBACCE173D5DEF003AD347 /* NSNumber+TULayoutAdditions.m */,
 				11BBACCA173D5D16003AD347 /* TUConstraintInfo.h */,
@@ -209,6 +214,7 @@
 				11BBACBF173D578B003AD347 /* TUViewController.m in Sources */,
 				11BBACC8173D57E9003AD347 /* UIView+TULayoutAdditions.m in Sources */,
 				11BBACCC173D5D16003AD347 /* TUConstraintInfo.m in Sources */,
+				118F4E251A48DD5F004CA1E5 /* UIViewController+TULayoutAdditions.m in Sources */,
 				11BBACCF173D5DEF003AD347 /* NSNumber+TULayoutAdditions.m in Sources */,
 				11A132461747DE0000F823EC /* NSLayoutConstraint+TULayoutAdditions.m in Sources */,
 			);

@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+
+void TULayoutAdditionsSetGuideView(id<UILayoutSupport> guide, UIView *view);
+UIView *TULayoutAdditionsGetGuideView(id<UILayoutSupport> guide);
+
+
 @interface NSLayoutConstraint (TULayoutAdditions)
 
 - (BOOL)add;

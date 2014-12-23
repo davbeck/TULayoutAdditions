@@ -36,7 +36,9 @@
     
     blueView.constrainedHeight = @50;
     blueView.constrainedWidth = @100;
-    blueView.constrainedTop = @80;
+//    blueView.constrainedTop = @80;
+//    self.constrainedTopLayoutGuide = blueView.constrainedTop;
+    blueView.constrainedTop = self.constrainedTopLayoutGuide;
     blueView.constrainedLeft = @20;
     
     redView.constrainedLeft = [blueView.constrainedRight plus:20.0];

@@ -8,6 +8,9 @@
 
 #import "TUConstraintInfo.h"
 
+#import "NSLayoutConstraint+TULayoutAdditions.h"
+
+
 @implementation TUConstraintInfo
 
 - (id)init
@@ -29,6 +32,19 @@
     if (self != nil) {
         _toItem = item;
         _toAttribute = attribute;
+    }
+    
+    return self;
+}
+
+- (id)initWithView:(UIView *)view guide:(id<UILayoutSupport>)guide attribute:(NSLayoutAttribute)attribute
+{
+    self = [self init];
+    if (self != nil) {
+        _toItem = guide;
+        _toAttribute = attribute;
+        
+        TULayoutAdditionsSetGuideView(guide, view);
     }
     
     return self;

@@ -11,7 +11,7 @@
 #import "TUConstraintInfo.h"
 
 
-@interface NSNumber (TULayoutAdditions)
+@interface NSNumber (TULayoutAdditions) <TUConstraintInfo>
 
 @property (nonatomic, readonly) TUConstraintInfo *constraint;
 
