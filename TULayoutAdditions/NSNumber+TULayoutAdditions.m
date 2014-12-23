@@ -52,24 +52,24 @@
     return [self.constraint withPriority:priority];
 }
 
-- (TUConstraintInfo *)plus:(CGFloat)value
+- (NSNumber *)plus:(CGFloat)value
 {
-    return [self.constraint plus:value];
+    return @(self.doubleValue + value);
 }
 
-- (TUConstraintInfo *)minus:(CGFloat)value
+- (NSNumber *)minus:(CGFloat)value
 {
-    return [self.constraint minus:value];
+    return @(self.doubleValue - value);
 }
 
-- (TUConstraintInfo *)times:(CGFloat)value
+- (NSNumber *)times:(CGFloat)value
 {
-    return [self.constraint times:value];
+    return @(self.doubleValue * value);
 }
 
-- (TUConstraintInfo *)dividedBy:(CGFloat)value
+- (NSNumber *)dividedBy:(CGFloat)value
 {
-    return [self.constraint dividedBy:value];
+    return @(self.doubleValue / value);
 }
 
 @end
