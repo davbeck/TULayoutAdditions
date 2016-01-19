@@ -2,6 +2,8 @@
 
 `TULayoutAdditions` is a collection of helper objects and categories that makes auto layout on iOS dead simple.
 
+> **Do not use this library.** It is provided for backwards compatibility. However, the new [`NSLayoutAnchor`](https://developer.apple.com/library/mac/documentation/AppKit/Reference/NSLayoutAnchor_ClassReference/) API in iOS 9 is just as succinct as this library, more capable, and doesn't require an external dependency outside of UIKit/AppKit.
+
 ## Installation
 
 ### CocoaPods
